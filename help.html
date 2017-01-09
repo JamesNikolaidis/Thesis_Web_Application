@@ -1,0 +1,237 @@
+<html>
+	<head>
+		<title>Farmers Helper: Help</title>
+		<meta charset="UTF-8">
+		<link type='text/css' rel='stylesheet' href='style.css'/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<link rel="icon" href="favicon.ico">
+		 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		 <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
+	    <script src='initialize_firebase.js'  type='text/javascript'></script>
+<style>
+#help_button span:after {
+  content: 'Help';
+  position: absolute;
+  color : white;
+  opacity: 0;
+  top: 0;
+  padding-left : 10px;
+  right:  -200px;
+  transition: 1s;
+}
+#dist_button span:after {
+  content: 'Distributes';
+  position: absolute;
+  color : white;
+  opacity: 0;
+  top: 0;
+  padding-left : 10px;
+  right:  -220px;
+  transition: 1s;
+}
+		
+#product_button span:after {
+  content: 'Products';
+  position: absolute;
+  color : white;
+  opacity: 0;
+  top: 0;
+  padding-left : 10px;
+  right:  -180px;
+  transition: 1s;
+}
+#main_page_photo span:after {
+  content: 'Home';
+  position: absolute;
+  color : white;
+  opacity: 0;
+  padding-right : 10px;
+  top: 0;
+  right:  -100px;
+  transition: 1s;
+}
+#profile_button span:after {
+  content: 'Profile';
+  position: absolute;
+  opacity: 0;
+  color : white;
+  padding-right : 10px;
+  top: 0;
+  right:  -100px;
+  transition: 1s;
+}
+#contact_photo span:after {
+  content: 'Contact';
+  position: absolute;
+  color : white;
+  opacity: 0;
+  top: 0;
+  padding-left : 10px;
+  right:  -140px;
+  transition: 1s;
+}			
+</style>
+		
+		<script> 
+		
+		
+					    $(document).ready(function() {
+							
+							
+							
+							$("#profile_button").mouseover(function(){	
+								$("#product_list").animate({opacity: 0.0}, 200, function(){
+								$("#product_list").css("visibility","hidden");
+							})
+										
+																			
+							});		
+		
+							
+							$("#product_button").mouseover(function(){
+								$("#product_list").css({visibility:"visible", opacity: 0.0}).animate({opacity: 1.0},500);		
+							
+							});		
+							
+							
+						
+							$("#dist_button").mouseover(function(){
+								$("#product_list").animate({opacity: 0.0}, 200, function(){
+								$("#product_list").css("visibility","hidden");
+										})
+										
+							});
+					
+					
+							$("#help_button").mouseover(function(){										
+								$("#product_list").animate({opacity: 0.0}, 200, function(){
+								$("#product_list").css("visibility","hidden");
+										})
+										
+							});		
+						
+						
+						
+							
+							$("#product_list").mouseleave(function(){						
+							$("#product_list").animate({opacity: 0.0}, 200, function(){
+								$("#product_list").css("visibility","hidden");
+										})
+										
+							});
+										
+									 
+						 
+						});
+							
+						
+								
+						 
+		</script>
+		
+		<style>
+		#helpdialog{
+		position : absolute;
+		margin-top : 130px;
+		margin-left : 22%;
+		height : 80%;
+		width  : 60%;
+		border-radius  :5px;
+		
+		border: 6px solid rgba(255, 255, 255, .5);
+		
+		
+		}
+		
+		
+		
+		h1, p {
+			font-family : verdana;
+			font-style : italic;
+			color : #CCFFCC ;
+		
+		
+		}
+		
+		</style>
+	</head>
+	
+	<body>
+	
+	
+	
+	<body style="background-image : url('help_wallpaper.jpg');">
+	<script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
+	<script src='initialize_firebase.js'  type='text/javascript'></script>
+	  
+	  
+	  
+	  
+	
+	<div id='menuDiv' >
+	<a href='index1.php'><button id='main_page_photo' class="button" style="vertical-align:middle"> <span><img src='home.png'/></span></button></a>
+	<a href='profile.php'><button id='profile_button' class="button" style="vertical-align:middle"><span><img src='profile1.jpg'/></span></button></a>
+	<button id='product_button' class="button" style="vertical-align:middle"><span id="product"><img src='product1.png'/></span></button>
+	<a href='distributers.php'><button id='dist_button' class="button" style="vertical-align:middle"><span id="product"><img src='dist.png'/></span></button></a>
+	<a href='help.html'><button id='help_button' class="button" style="vertical-align:middle"><span id="product"><img  id='help'src='help1.png'/></span></button></a>
+	<a href='contact.php'><button id='contact_photo' class="button" style="vertical-align:middle"><span id="product"><img  id='help'src='contact_png.png'/></span></button></a>
+	  <button id='logout' class="button" style="vertical-align:middle"><span id="product" class='logoutspan' ><img  id='logoutim' src="logout.png"/></span></button>
+		<script>
+		 $("#logout").mouseover(function(){
+								$("#logoutim").attr("src","logout2.png");
+								
+								
+							});
+					
+							$("#logout").mouseleave(function(){
+								$("#logoutim").attr("src","logout.png");
+								
+								
+							});
+							
+							$("#logout").click(function(){
+																
+										$.get('closesession.php', function(data) {
+												window.location = 'arxiki.html';
+												});
+								
+								});
+		</script>
+	
+	</div>
+	
+	
+	<div id='product_list'>
+		<a href='products_new.php'><button class ='product'  style="vertical-align:middle">Add Product</button></a>
+		<a href='view_products.php'><button class ='product'  style="vertical-align:middle">View Products</button></a>
+	</div>
+	
+	
+	
+	<div id='helpdialog'>
+			<h1 style='text-align:center;'>Welcome to Farmers Helper Help Page</h1><br/><br>
+			<p>On this page you will find some informations about the problem or questions which your Company could have.<br/>
+			First of all , on top of the page is web site's menu. With this menu you can navigate into our site.<br/>
+			There is the menu button <b>"Home"</b>,which it will send you to the main page.After this button is the <b>"Profile"</b> option
+			where you can see your Company's information and if you want you can edit them. Next is the option called <b>"Product"</b> which breaks into
+			two new options 1)New Product, where you can add a new product to our database and make it visible to the consumer in miliseconds and 2)
+			View Products, where you can see in a table all the products that your company save and delete or edit them.<br/>
+			Further up it is the <b>"Distribiuters"</b> option , which give you the ability to create new Distributers which your company corporate with them,
+			and make it easier to consumer to find you products . Before the end we find the option <b>"Help"</b> which is this page . Final there is the 
+			"Contact" option. With the <b>"Contact"</b> option you can communicate with our Company and give you feedback about any problem's that you may have.<br/>
+			
+			
+			With All Regrads<br/>
+			Farmer's Helper Develop Team.
+			</p>
+	</div>
+	
+	
+	
+	</body>
+
+
+
+
+
+</html>
